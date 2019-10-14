@@ -9,13 +9,31 @@
 </template>
 
 <style lang="scss">
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #3C6BD5;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Cabin', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #FCFBF5;
+  font-size: 16px;
+  height: 100%;
 }
+
 #nav {
   padding: 30px;
   a {

@@ -14,9 +14,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/egg',
+      name: 'egg',
+      component: () => import(/* webpackChunkName: "egg" */ './views/Egg.vue')
     }
   ]
 })

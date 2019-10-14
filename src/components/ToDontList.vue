@@ -29,14 +29,14 @@ export default {
   width: 90%;
 
   .hole-punch {
-    width: 55px;
-    background: #f7f4ed;
+    width: 35px;
+    background: #F9F9F9;
     background-image: repeating-linear-gradient(
       180deg,
-      #f7f4ed 0px,
-      #f7f4ed 52px,
-      #7aafff 52px,
-      #7aafff 54px
+      #F9F9F9 0px,
+      #F9F9F9 39px,
+      #7aafff 39px,
+      #7aafff 41px
     );
     border-right: 2px solid #e7847e;
   }
@@ -46,30 +46,69 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: #f7f4ed;
+    background: #F9F9F9;
     border-radius: 0px 30px 30px 0px;
     background-image: repeating-linear-gradient(
       180deg,
-      #f7f4ed 0px,
-      #f7f4ed 52px,
-      #7aafff 52px,
-      #7aafff 54px
+      #F9F9F9 0px,
+      #F9F9F9 39px,
+      #7aafff 39px,
+      #7aafff 41px
     );
 
     .page-header {
-      height: 60px;
+      height: 45px;
       width: 100%;
     }
 
     .todont {
       width: 100%;
-      padding-left: 20px;
+      padding: 0 10px;
       text-align: left;
+      user-select: none;
 
       label {
         font-family: 'La Belle Aurore', cursive;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #000;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .todonts-wrapper {
+    .hole-punch {
+      width: 55px;
+
+      background-image: repeating-linear-gradient(
+        180deg,
+        #F9F9F9 0px,
+        #F9F9F9 52px,
+        #7aafff 52px,
+        #7aafff 54px
+      );
+    }
+
+    .todonts {
+      background-image: repeating-linear-gradient(
+        180deg,
+        #F9F9F9 0px,
+        #F9F9F9 52px,
+        #7aafff 52px,
+        #7aafff 54px
+      );
+
+      .page-header {
+        height: 60px;
+      }
+
+      .todont {
+        padding: 0 20px;
+
+        label {
+          font-size: 2rem;
+        }
       }
     }
   }

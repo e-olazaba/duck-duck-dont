@@ -19,6 +19,7 @@
         aria-labelledby="new to dont"
         v-model="newTodont"
         @keyup.enter="addNewTodont"
+        autocomplete="off"
       />
       </div>
     </div>

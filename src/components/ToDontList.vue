@@ -3,9 +3,23 @@
     <div class="hole-punch"></div>
     <div class="todonts">
       <div class="page-header"></div>
+      <div class="todont">
+        <label><strong>TO NOT DO:</strong></label>
+      </div>
       <div class="todont" v-for="(todont, index) of todonts" :key="index">
         <input :id="`${index}`" type="checkbox" :checked="todont.checked" />
         <label :for="`${index}`">{{ todont.name }}</label>
+      </div>
+      <div class="todont">
+        <input
+        class="new-todont"
+        id="new-todont"
+        type="text"
+        aria-label="new to dont"
+        aria-labelledby="new to dont"
+        v-model="newTodont"
+        @keyup.enter="addNewTodont"
+      />
       </div>
     </div>
   </div>
@@ -14,9 +28,22 @@
 <script>
 export default {
   name: 'ToDontList',
+  data: function () {
+    return {
+      newTodont: ''
+    };
+  },
   computed: {
     todonts() {
       return this.$store.state.todonts;
+    }
+  },
+  methods: {
+    addNewTodont() {
+      if (this.newTodont) {
+        this.$store.commit('addTodont', this.newTodont);
+        this.newTodont = '';
+      }
     }
   }
 }
@@ -33,10 +60,10 @@ export default {
     background: #F9F9F9;
     background-image: repeating-linear-gradient(
       180deg,
-      #F9F9F9 0px,
+      #F9F9F9 1px,
       #F9F9F9 39px,
       #7aafff 39px,
-      #7aafff 41px
+      #7aafff 40px
     );
     border-right: 2px solid #e7847e;
   }
@@ -50,14 +77,14 @@ export default {
     border-radius: 0px 30px 30px 0px;
     background-image: repeating-linear-gradient(
       180deg,
-      #F9F9F9 0px,
+      #F9F9F9 1px,
       #F9F9F9 39px,
       #7aafff 39px,
-      #7aafff 41px
+      #7aafff 40px
     );
 
     .page-header {
-      height: 45px;
+      height: 41px;
       width: 100%;
     }
 
@@ -72,6 +99,21 @@ export default {
         font-size: 1.5rem;
         color: #000;
       }
+
+      .new-todont {
+        font-family: 'La Belle Aurore', cursive;
+        font-size: 1.5rem;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin-left: 5px;
+        width: 90%;
+        color: #333333;
+
+        &:focus {
+          outline: none;
+        }
+      }
     }
   }
 }
@@ -83,24 +125,24 @@ export default {
 
       background-image: repeating-linear-gradient(
         180deg,
-        #F9F9F9 0px,
+        #F9F9F9 1px,
         #F9F9F9 52px,
         #7aafff 52px,
-        #7aafff 54px
+        #7aafff 53px
       );
     }
 
     .todonts {
       background-image: repeating-linear-gradient(
         180deg,
-        #F9F9F9 0px,
+        #F9F9F9 1px,
         #F9F9F9 52px,
         #7aafff 52px,
-        #7aafff 54px
+        #7aafff 53px
       );
 
       .page-header {
-        height: 60px;
+        height: 55px;
       }
 
       .todont {

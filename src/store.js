@@ -3,7 +3,10 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+import localStoragePlugin from './plugins/localStorage';
+
 export default new Vuex.Store({
+  plugins: [localStoragePlugin],
   state: {
     todonts: [
       {
@@ -17,7 +20,20 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    initializeStore() {
+      const data = localStorage.getItem('todontState');
 
+      if (data) {
+        this.replaceState(Object.assign(this.state, JSON.parse(data)));
+      }
+    },
+    addTodont(state, todontName) {
+      const newTodont = {
+        name: todontName,
+        checked: false
+      }
+      state.todonts.push(newTodont);
+    }
   },
   actions: {
 
